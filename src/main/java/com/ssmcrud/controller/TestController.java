@@ -53,7 +53,7 @@ public class TestController {
     public Map<String, Object > getPicture(
 //            @RequestPart("file") MultipartFile files) {
             @RequestParam String base64Data) throws IOException, OrtException {
-        System.out.println(base64Data);
+//        System.out.println(base64Data);
         base64Data = base64Data.split("base64,")[1];
 
         byte[] bytes1 = decoder.decodeBuffer(base64Data);
