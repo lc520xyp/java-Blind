@@ -77,13 +77,13 @@ public class TestController {
             yolox = new  YOLOX("D:\\DeskTop\\java-ssm\\ssmcrud-master\\src\\main\\resources\\yolox_s.onnx");
         }
 
-        ArrayList<float[]> result = yolox.run(bi1, 0.3f);
+        ArrayList<float[]> result = yolox.run(bi1, 0.5f);
 
         int resultIndex = 0;
         for (float[] f:result
              ) {
-            int t_X = (int)(f[2] + f[4])/2;
-            int t_Y = (int)(f[3] + f[5])/2;
+            int t_X = (int)(f[2]);
+            int t_Y = (int)(f[3]);
             int x_len = (int)( - f[2] + f[4]);
             int y_len = (int)( - f[3] + f[5]);
             map.put( resultIndex +"_"+(int)f[1],new int[]{t_X, t_Y, x_len, y_len});

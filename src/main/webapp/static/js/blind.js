@@ -102,7 +102,7 @@ let COCO_CLASSES = [
         "toothbrush"
 ]
 
-// setInterval(cutScreen, 3000);
+setInterval(cutScreen, 333);
 
 
 //使用后置摄像头：video : {facingMode: { exact: "environment" }}
@@ -247,10 +247,12 @@ function readingMode (){
     map.forEach(function(value,key){
 
         // console.log((click_x - Number(value[0]))*(click_x - Number(value[0])) + (click_y - Number(value[1])) * (click_y - Number(value[1])));
-        if( click_x<Number(value[0]) + Number(value[2])/2 && click_x > Number(value[0]) - Number(value[2])/2 &&
-            click_y<Number(value[1]) + Number(value[3])/2 && click_y > Number(value[1]) - Number(value[3])/2 &&
-            (click_x - Number(value[0]))*(click_x - Number(value[0])) + (click_y - Number(value[1])) * (click_y - Number(value[1])) <= minDistance){
-            minDistance = (click_x - value[0])*(click_x - value[0]) + (click_y - value[1]) * (click_y - value[1]);
+        if( click_x<Number(value[0]) + Number(value[2]) && click_x > Number(value[0]) &&
+            click_y<Number(value[1]) + Number(value[3]) && click_y > Number(value[1]) &&
+            (click_x - (Number(value[0]) + Number(value[2])/2))*(click_x - (Number(value[0]) + Number(value[2])/2)) +
+            (click_y - Number(value[1])+ Number(value[3])/2) * (click_y - Number(value[1])+ Number(value[3])/2) <= minDistance){
+            minDistance = (click_x - (Number(value[0]) + Number(value[2])/2))*(click_x - (Number(value[0]) + Number(value[2])/2)) +
+                (click_y - Number(value[1])+ Number(value[3])/2) * (click_y - Number(value[1])+ Number(value[3])/2);
             res = key.slice(key.indexOf('_')+1);
         }
     });
