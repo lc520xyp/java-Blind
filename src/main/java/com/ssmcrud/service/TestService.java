@@ -71,8 +71,6 @@ public class TestService {
                     OnnxTensor resultTensor = (OnnxTensor) resultValue;
                     resultTensor.getValue();
 
-
-
 //                    System.out.println("Output Name: {0}", r.Name);
 //                    int prediction = MaxProbability(resultTensor);
 //                    System.out.println("Prediction: " + prediction.ToString());
